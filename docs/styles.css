@@ -1,19 +1,19 @@
 /* =====================================
    VARIABLES GLOBALES
-   Aquí definimos colores y tamaños
 ===================================== */
 :root {
-  --color-primario: #1f3c88;
-  --color-secundario: #f5f7fa;
-  --color-texto: #333;
+  --color-primario: #0dcfc6;
+  --color-primario-oscuro: #0aa09a;
+  --color-secundario: #f4f6f8;
+  --color-texto: #1a1a1a;
   --color-blanco: #ffffff;
+  --color-gris: #e5e7eb;
 
   --ancho-maximo: 1100px;
 }
 
 /* =====================================
-   RESET BÁSICO
-   Evita estilos raros del navegador
+   RESET
 ===================================== */
 * {
   margin: 0;
@@ -25,29 +25,31 @@
    ESTILOS GENERALES
 ===================================== */
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
   color: var(--color-texto);
-  line-height: 1.6;
+  line-height: 1.7;
   background-color: var(--color-blanco);
 }
 
-/* Secciones generales */
+/* Contenedor de secciones */
 .section {
   max-width: var(--ancho-maximo);
   margin: auto;
-  padding: 3rem 1rem;
+  padding: 4rem 1.5rem;
 }
 
-/* Sección con fondo gris claro */
+/* Sección clara */
 .section-light {
   background-color: var(--color-secundario);
+  width: 100%;
 }
 
-/* Títulos principales */
+/* Títulos */
 h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: var(--color-primario);
+  font-size: 2rem;
 }
 
 /* =====================================
@@ -55,124 +57,154 @@ h2 {
 ===================================== */
 header {
   background-color: var(--color-primario);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contenedor del menú */
 .nav {
   max-width: var(--ancho-maximo);
   margin: auto;
-  padding: 1rem;
+  padding: 1.2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
 .logo {
   color: var(--color-blanco);
+  font-size: 1.4rem;
 }
 
-/* Lista de enlaces */
+/* Menú */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
-}
-
-/* Enlaces del menú */
-.nav-links a {
-  color: var(--color-blanco);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Hover del menú */
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* =====================================
-   SECCIÓN INICI (HERO)
-===================================== */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-}
-
-.hero p {
-  max-width: 600px;
-  margin: auto;
-}
-
-/* =====================================
-   SECCIÓN SERVEIS
-===================================== */
-.cards {
-  display: grid;
   gap: 1.5rem;
 }
 
-/* Tarjeta individual */
-.card {
-  background-color: var(--color-secundario);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
+.nav-links a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  opacity: 0.85;
 }
 
 /* =====================================
-   SECCIÓN CONTACTE – FORMULARIO
+   HERO / INICI
+===================================== */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem;
+}
+
+.hero h2 {
+  font-size: 2.3rem;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* =====================================
+   SERVEIS
+===================================== */
+.cards {
+  display: grid;
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--color-blanco);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+  margin-bottom: 0.8rem;
+  color: var(--color-primario);
+}
+
+.card p {
+  color: #555;
+}
+
+/* Hover tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
+   CONTACTE – FORMULARIO
 ===================================== */
 .contact-form {
-  max-width: 500px;
+  max-width: 520px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.3rem;
 }
 
-/* Etiquetas del formulario */
 .contact-form label {
   display: flex;
   flex-direction: column;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Inputs y textarea */
 .contact-form input,
 .contact-form textarea {
-  padding: 0.6rem;
-  margin-top: 0.3rem;
+  padding: 0.7rem;
+  margin-top: 0.4rem;
   font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-gris);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
 }
 
 /* Botón */
 .contact-form button {
-  margin-top: 1rem;
-  padding: 0.7rem;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
   background-color: var(--color-primario);
   color: var(--color-blanco);
   border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
-/* Hover del botón */
 .contact-form button:hover {
-  opacity: 0.9;
+  background-color: var(--color-primario-oscuro);
 }
 
 /* =====================================
-   PIE DE PÁGINA
+   FOOTER
 ===================================== */
 footer {
   background-color: var(--color-primario);
   color: var(--color-blanco);
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.8rem 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 /* =====================================
-   RESPONSIVE (TABLET Y PC)
+   RESPONSIVE
 ===================================== */
 @media (min-width: 768px) {
   .cards {
