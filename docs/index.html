@@ -2,30 +2,30 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Foodlogic | Solucions Digitals</title>
+  <title>Foodlogic | Distribució d'Aliments</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Disseny web, branding i estratègia digital per a empreses del sector alimentari i més enllà.">
+  <meta name="description" content="Distribució d'aliments frescos i logística per a empreses. Qualitat i puntualitat de l'origen al destí.">
 
   <style>
     /* =========================================
        VARIABLES CSS & RESET
        ========================================= */
     :root {
-      /* Paleta de Colors */
-      --primary-color: #10b981; /* Verd Maragda Modern */
-      --primary-dark: #059669;
-      --secondary-color: #1e293b; /* Gris Fosc */
-      --accent-color: #f59e0b; /* Taronja suau per detalls */
+      /* Paleta de Colors (Professional & Corporate) */
+      --primary-color: #16a34a; /* Verd Fresc */
+      --primary-dark: #15803d;
+      --secondary-color: #0f172a; /* Blau Fosc (Corporatiu) */
+      --secondary-light: #334155; /* Gris Blavós */
       --bg-light: #f8fafc;
       --bg-white: #ffffff;
-      --text-main: #334155;
+      --text-main: #1e293b;
       --text-light: #64748b;
       --white: #ffffff;
       
       /* Espaiat i Dimensions */
       --container-width: 1200px;
       --header-height: 80px;
-      --border-radius: 12px;
+      --border-radius: 12px; 
       --transition: all 0.3s ease;
     }
 
@@ -47,7 +47,6 @@
       overflow-x: hidden;
     }
 
-    /* Classes Utilitàries */
     .container {
       max-width: var(--container-width);
       margin: 0 auto;
@@ -55,7 +54,7 @@
     }
 
     .section-padding {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     h1, h2, h3 {
@@ -84,25 +83,37 @@
     /* Botons */
     .btn {
       display: inline-block;
-      padding: 12px 28px;
-      border-radius: 50px;
+      padding: 14px 32px;
+      border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
       border: none;
       font-size: 1rem;
       transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .btn-primary {
       background-color: var(--primary-color);
       color: var(--white);
-      box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.2);
     }
 
     .btn-primary:hover {
       background-color: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 10px 15px -3px rgba(22, 163, 74, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: var(--secondary-color);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--secondary-light);
+      transform: translateY(-2px);
     }
 
     /* =========================================
@@ -110,15 +121,15 @@
        ========================================= */
     header {
       height: var(--header-height);
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.98);
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
       display: flex;
       align-items: center;
+      border-bottom: 4px solid var(--primary-color);
     }
 
     .nav {
@@ -133,45 +144,17 @@
       font-weight: 800;
       color: var(--secondary-color);
       letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--primary-color);
-    }
-
-    .nav-links {
       display: flex;
-      list-style: none;
-      gap: 30px;
+      align-items: center;
+      gap: 10px;
     }
 
-    .nav-links a {
-      font-weight: 500;
-      color: var(--text-main);
-      position: relative;
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--primary-color);
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--primary-color);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary-color);
-    }
-
-    /* Menú Mòbil */
     .hamburger {
       display: none;
       cursor: pointer;
@@ -186,39 +169,68 @@
       transition: var(--transition);
     }
 
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-cta {
+      background-color: var(--secondary-color);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+    }
+    
+    .nav-cta:hover {
+      background-color: var(--primary-color) !important;
+    }
+
     /* =========================================
        HERO SECTION
        ========================================= */
     .hero {
       height: 100vh;
-      min-height: 600px;
+      min-height: 650px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(16, 185, 129, 0.8)), 
-                  url('https://picsum.photos/seed/foodlogictech/1920/1080.jpg') no-repeat center center/cover;
+      background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
+                  url('https://picsum.photos/seed/foodmarket/1920/1080.jpg') no-repeat center center/cover;
       color: var(--white);
       padding-top: var(--header-height);
+      position: relative;
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
       padding: 20px;
       animation: fadeIn 1s ease-out;
     }
 
     .hero h2 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       margin-bottom: 1.5rem;
       color: var(--white);
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
 
     .hero p {
-      font-size: 1.25rem;
-      color: #e2e8f0;
-      margin-bottom: 2rem;
+      font-size: 1.35rem;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
     }
 
     /* =========================================
@@ -228,49 +240,66 @@
       background-color: var(--bg-white);
     }
 
+    .section-subtitle {
+      text-align: center;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
     .cards-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      margin-top: 40px;
+      margin-top: 50px;
     }
 
     .card {
       background: var(--white);
       padding: 40px 30px;
       border-radius: var(--border-radius);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       border: 1px solid #e2e8f0;
       transition: var(--transition);
       text-align: center;
+      position: relative;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
       border-color: var(--primary-color);
     }
 
+    /* Icones SVG */
     .card-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      display: inline-block;
-      background: #ecfdf5;
-      width: 80px;
-      height: 80px;
-      line-height: 80px;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 25px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0fdf4;
       border-radius: 50%;
       color: var(--primary-color);
+    }
+    
+    .card-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--primary-color);
+      stroke-width: 2;
+      fill: none;
     }
 
     .card h3 {
       margin-bottom: 15px;
-      font-size: 1.5rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      margin-bottom: 0;
+      font-size: 1.3rem;
+      color: var(--secondary-color);
     }
 
     /* =========================================
@@ -283,63 +312,125 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 60px;
       align-items: center;
+    }
+
+    .about-image {
+      position: relative;
     }
 
     .about-image img {
       width: 100%;
       border-radius: var(--border-radius);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+      position: relative;
+    }
+    
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--primary-color);
+      border-radius: var(--border-radius);
+      z-index: 1;
     }
 
     .about-text h2 {
       text-align: left;
     }
-
-    .features-list {
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    .features-list li {
-      margin-bottom: 10px;
+    
+    .stat-row {
       display: flex;
-      align-items: center;
-      color: var(--text-main);
-      font-weight: 500;
+      gap: 40px;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #cbd5e1;
     }
-
-    .features-list li::before {
-      content: '✓';
-      color: var(--primary-color);
-      font-weight: bold;
-      margin-right: 10px;
-      background: #d1fae5;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    
+    .stat-item h4 {
+      font-size: 2.2rem;
+      color: var(--secondary-color);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    
+    .stat-item p {
       font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     /* =========================================
        CONTACTE
        ========================================= */
     #contacte {
-      background-color: var(--bg-white);
+      background-color: var(--white);
+    }
+    
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .contact-info {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .contact-info h3 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info p {
+      color: #94a3b8;
+      margin-bottom: 40px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    
+    .info-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+    }
+    
+    .info-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--primary-color);
+      stroke-width: 2;
+      fill: none;
     }
 
-    .contact-wrapper {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--white);
-      padding: 40px;
-      border-radius: var(--border-radius);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
+    .contact-form-wrapper {
+      padding: 60px;
     }
 
     .contact-form {
@@ -357,23 +448,24 @@
     }
 
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
-      padding: 12px 15px;
-      border: 2px solid #e2e8f0;
-      border-radius: 8px;
+      padding: 14px 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
       font-family: inherit;
       font-size: 1rem;
       transition: var(--transition);
-      background-color: #f8fafc;
+      background-color: #fff;
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--primary-color);
-      background-color: var(--white);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+      background-color: #f8fafc;
     }
 
     .contact-form button {
@@ -387,35 +479,96 @@
     footer {
       background-color: var(--secondary-color);
       color: var(--white);
-      padding: 40px 0;
-      text-align: center;
+      padding: 70px 0 30px;
+      border-top: 6px solid var(--primary-color);
     }
 
-    footer p {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .footer-brand svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--primary-color);
+    }
+    
+    .footer-brand p {
       color: #94a3b8;
-      font-size: 0.9rem;
-      margin-bottom: 0;
+      max-width: 350px;
+    }
+    
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-bottom p {
+      color: #475569;
+      font-size: 0.85rem;
+      margin: 0;
     }
 
     /* =========================================
        RESPONSIVE DESIGN
        ========================================= */
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2.5rem;
-      }
+    @media (max-width: 900px) {
+      .hero h2 { font-size: 2.8rem; }
+      .about-grid, .contact-layout, .footer-grid { grid-template-columns: 1fr; }
+      .about-image { order: -1; }
+      .contact-info { padding: 40px; }
+      .contact-form-wrapper { padding: 40px; }
+    }
 
-      .hamburger {
-        display: flex;
-        z-index: 1001;
-      }
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 2.2rem; }
+      .hero p { font-size: 1.1rem; }
+      
+      .hamburger { display: flex; z-index: 1001; }
 
       .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 70%;
+        width: 80%;
         background-color: var(--white);
         flex-direction: column;
         justify-content: center;
@@ -424,33 +577,28 @@
         transition: 0.4s ease-in-out;
       }
 
-      .nav-links.active {
-        right: 0;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .about-image {
-        order: -1; /* Imatge a dalt en mòbil */
-      }
+      .nav-links.active { right: 0; }
+      .stat-row { flex-direction: column; gap: 20px; }
     }
 
-    /* Animacions */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ===== CABECERA Y NAVEGACIÓN ===== -->
+  <!-- ===== CABECERA ===== -->
   <header>
     <div class="container nav">
-      <a href="#" class="logo">Food<span>logic</span></a>
+      <a href="#" class="logo">
+        <!-- Icona Fulla SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
+        </svg>
+        Foodlogic
+      </a>
       
       <div class="hamburger" id="hamburger">
         <div class="bar"></div>
@@ -460,9 +608,9 @@
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#inici">Inici</a></li>
-        <li><a href="#serveis">Serveis</a></li>
-        <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
-        <li><a href="#contacte" class="btn btn-primary" style="padding: 8px 20px; color: white;">Contacte</a></li>
+        <li><a href="#serveis">Productes</a></li>
+        <li><a href="#sobre-nosaltres">Empresa</a></li>
+        <li><a href="#contacte" class="nav-cta">Sol·licitar Pressupost</a></li>
       </ul>
     </div>
   </header>
@@ -473,35 +621,71 @@
     <!-- SECCIÓN INICI -->
     <section id="inici" class="hero">
       <div class="hero-content">
-        <h2>Solucions digitals que alimenten el teu èxit</h2>
-        <p>Disseny web estratègic, branding i tecnologia per a empreses que volen marcar la diferència en el mercat actual.</p>
-        <a href="#serveis" class="btn btn-primary">Descobreix els nostres serveis</a>
+        <h2>Excel·lència en Distribució Alimentària</h2>
+        <p>Garantim la cadena de fred i la puntualitat en l'entrega de productes frescos i de rebost per a la teva empresa.</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <a href="#serveis" class="btn btn-primary">Veure Serveis</a>
+          <a href="#contacte" class="btn btn-secondary">Contactar Ara</a>
+        </div>
       </div>
     </section>
 
     <!-- SECCIÓN SERVEIS -->
     <section id="serveis" class="section-padding">
       <div class="container">
-        <h2>Els nostres serveis</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto;">Oferim una gamma completa de solucions digitals per ajudar el teu negoci a prosperar en l'era de la connectivitat.</p>
+        <span class="section-subtitle">El que oferim</span>
+        <h2>Solucions Integrals per a la Hostaleria</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">Cobrim tota la cadena de subministrament amb estàndards rigorosos de qualitat i seguretat alimentària.</p>
 
         <div class="cards-container">
           <article class="card">
-            <div class="card-icon">💻</div>
-            <h3>Disseny Web</h3>
-            <p>Creem webs modernes, totalment responsives (adaptables a mòbil) i optimitzades per convertir visitants en clients.</p>
+            <div class="card-icon">
+              <!-- Icona Productes Frescos -->
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+              </svg>
+            </div>
+            <h3>Productes Frescos</h3>
+            <p>Selecció diària de fruites, verdures i hortalisses. Control estrictu de qualitat i procedència.</p>
           </article>
 
           <article class="card">
-            <div class="card-icon">🎨</div>
-            <h3>Branding Digital</h3>
-            <p>Construïm una identitat visual sòlida i coherent que connecta emocionalment amb la teva audiència objectiu.</p>
+            <div class="card-icon">
+              <!-- Icona Camió/Logística -->
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Flota Pròpia</h3>
+            <p>Logística interna amb vehicles refrigerats. Entregues en 24/48h garantint la cadena de fred.</p>
           </article>
 
           <article class="card">
-            <div class="card-icon">📈</div>
-            <h3>Assessorament</h3>
-            <p>T’acompanyem en la transformació digital del teu negoci, prenant les decisions tecnològiques més encertades.</p>
+            <div class="card-icon">
+              <!-- Icona Caixa/Magatzem -->
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3>Rebost i Gran Consum</h3>
+            <p>Llarga gamma de productes secs, conserves, begudes i congelats per a establiments de tota mena.</p>
+          </article>
+          
+          <article class="card">
+            <div class="card-icon">
+              <!-- Icona Mà/Client -->
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3>Atenció B2B</h3>
+            <p>Gestors de compte dedicats per a restaurants, hotels i col·lectivitats. Facturació flexible.</p>
           </article>
         </div>
       </div>
@@ -511,23 +695,33 @@
     <section id="sobre-nosaltres" class="section-padding">
       <div class="container about-grid">
         <div class="about-text">
-          <h2>Sobre Foodlogic</h2>
+          <span class="section-subtitle">Sobre Nosaltres</span>
+          <h2>Compromís i Qualitat des de l'Origen</h2>
           <p>
-            Sóc un estudi de disseny i desenvolupament web enfocat en la lògica i l'eficiència. Creiem que una bona presència digital no ha de ser només bonica, sinó funcional i rendible.
+            A <strong>Foodlogic</strong>, no ens limitem a transportar mercaderia. Actuem com a filtre de qualitat per als nostres clients, treballant directament amb cooperatives agràries i productors de confiança.
           </p>
           <p>
-            La nostra missió és ajudar empreses modernes a navegar pel món digital amb eines clares, efectives i adaptades a les seves necessitats reals.
+            La nostra infraestructura logística està dissenyada per minimitzar els temps d'espera i maximitzar la frescor del producte que arriba a la teva cuina.
           </p>
-          <ul class="features-list">
-            <li>Disseny centrat en l'usuari (UX)</li>
-            <li>Codi net i ràpid (SEO Friendly)</li>
-            <li>Suport i manteniment continuat</li>
-            <li>Solucions a mida</li>
-          </ul>
+          
+          <div class="stat-row">
+            <div class="stat-item">
+              <h4>+500</h4>
+              <p>Referències</p>
+            </div>
+            <div class="stat-item">
+              <h4>15</h4>
+              <p>Anys d'Experiència</p>
+            </div>
+            <div class="stat-item">
+              <h4>24h</h4>
+              <p>Servei Actiu</p>
+            </div>
+          </div>
         </div>
         <div class="about-image">
-          <!-- Imatge d'oficina moderna / treball en equip -->
-          <img src="https://picsum.photos/seed/working/600/400" alt="Equip treballant en projectes digitals" loading="lazy">
+          <!-- IMATGE CANVIADA: Camió de repartiment -->
+          <img src="https://picsum.photos/seed/deliverytruck/600/500" alt="Flota de camions de repartiment" loading="lazy">
         </div>
       </div>
     </section>
@@ -535,33 +729,97 @@
     <!-- SECCIÓN CONTACTE -->
     <section id="contacte" class="section-padding">
       <div class="container">
-        <h2>Parlem del teu projecte</h2>
-        <p style="text-align: center;">Omple el formulari i et respondrem en el més breu possible.</p>
+        <h2>Comença a treballar amb nosaltres</h2>
+        <p style="text-align: center; margin-bottom: 50px;">Sol·licita el teu accés a l'àrea client o demana informació sense compromís.</p>
         
-        <div class="contact-wrapper">
-          <form class="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="nom">Nom complet</label>
-              <input type="text" id="nom" name="nom" placeholder="El teu nom" required>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3>Informació de Contacte</h3>
+            <p>El nostre equip comercial està disponible per atendre't de dilluns a dissabte al matí.</p>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <!-- Icona Ubicació -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <strong>Seu Central</strong><br>
+                <span style="color: #cbd5e1; font-size: 0.9rem;">Polígon Industrial El Pla, Nau 42</span>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="email">Correu electrònic</label>
-              <input type="email" id="email" name="email" placeholder="nom@exemples.com" required>
+            <div class="info-item">
+              <div class="info-icon">
+                <!-- Icona Telèfon -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <strong>Telèfon</strong><br>
+                <span style="color: #cbd5e1; font-size: 0.9rem;">+34 93 123 45 67</span>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="telefon">Telèfon de contacte</label>
-              <input type="tel" id="telefon" name="telefon" placeholder="+34 600 000 000">
+            <div class="info-item">
+              <div class="info-icon">
+                <!-- Icona Correu -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <strong>Correu</strong><br>
+                <span style="color: #cbd5e1; font-size: 0.9rem;">comandes@foodlogic.cat</span>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for="missatge">En què et podem ajudar?</label>
-              <textarea id="missatge" name="missatge" rows="4" placeholder="Explica'ns una mica sobre el teu projecte..." required></textarea>
+            <div class="info-item">
+              <div class="info-icon">
+                <!-- Icona Rellotge -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <strong>Horari</strong><br>
+                <span style="color: #cbd5e1; font-size: 0.9rem;">Dll - Ds: 06:00 - 14:00</span>
+              </div>
             </div>
+          </div>
+          
+          <div class="contact-form-wrapper">
+            <form class="contact-form" action="#" method="POST">
+              <div class="form-group">
+                <label for="nom">Nom de l'empresa / Contacte</label>
+                <input type="text" id="nom" name="nom" placeholder="Ex: Restaurant El Xef" required>
+              </div>
 
-            <button type="submit" class="btn btn-primary">Enviar missatge</button>
-          </form>
+              <div class="form-group">
+                <label for="email">Correu electrònic</label>
+                <input type="email" id="email" name="email" placeholder="contacte@empresa.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="tipus">Sector</label>
+                <select id="tipus" name="tipus">
+                  <option value="restauracio">Restauració</option>
+                  <option value="hoteleria">Hoteleria</option>
+                  <option value="comerc">Comerç / Supermercat</option>
+                  <option value="col·lectivitats">Col·lectivitats</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="missatge">Missatge</label>
+                <textarea id="missatge" name="missatge" rows="4" placeholder="Descriu breument les teves necessitats..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Enviar Sol·licitud</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -571,15 +829,35 @@
   <!-- ===== PIE DE PÁGINA ===== -->
   <footer>
     <div class="container">
-      <h3 style="color: white; margin-bottom: 10px;">Foodlogic</h3>
-      <p>© 2026 Foodlogic · Disseny i Estratègia Digital</p>
-      <div style="margin-top: 20px; font-size: 0.85rem; color: #64748b;">
-        <a href="#">Política de Privacitat</a> · <a href="#">Avís Legal</a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <!-- Icona Petita Fulla -->
+            <svg viewBox="0 0 24 24">
+              <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
+            </svg>
+            Foodlogic
+          </h3>
+          <p>Liderem la distribució alimentària amb tecnologia avançada i un compromís intransigent amb la qualitat.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Enllaços</h4>
+          <ul>
+            <li><a href="#inici">Inici</a></li>
+            <li><a href="#serveis">Productes i Serveis</a></li>
+            <li><a href="#sobre-nosaltres">Sobre Nosaltres</a></li>
+            <li><a href="#contacte">Àrea de Clients</a></li>
+            <li><a href="#">Política de Privacitat</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Foodlogic Distribucions S.L. · Tots els drets reservats.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ===== SCRIPT PER AL MENÚ MÒBIL ===== -->
+  <!-- ===== SCRIPT MENÚ ===== -->
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -587,12 +865,8 @@
 
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-      
-      // Animació simple de l'icono
-      hamburger.classList.toggle('toggle');
     });
 
-    // Tancar el menú en fer clic en un enllaç
     links.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
