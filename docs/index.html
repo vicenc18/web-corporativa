@@ -2,113 +2,605 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Foodlogic</title>
+  <title>Foodlogic | Solucions Digitals</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Disseny web, branding i estratègia digital per a empreses del sector alimentari i més enllà.">
 
-  <!-- Enlace al archivo de estilos -->
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* =========================================
+       VARIABLES CSS & RESET
+       ========================================= */
+    :root {
+      /* Paleta de Colors */
+      --primary-color: #10b981; /* Verd Maragda Modern */
+      --primary-dark: #059669;
+      --secondary-color: #1e293b; /* Gris Fosc */
+      --accent-color: #f59e0b; /* Taronja suau per detalls */
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-main: #334155;
+      --text-light: #64748b;
+      --white: #ffffff;
+      
+      /* Espaiat i Dimensions */
+      --container-width: 1200px;
+      --header-height: 80px;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      overflow-x: hidden;
+    }
+
+    /* Classes Utilitàries */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--secondary-color);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    /* Botons */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+      box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    }
+
+    /* =========================================
+       HEADER & NAV
+       ========================================= */
+    header {
+      height: var(--header-height);
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Menú Mòbil */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    /* =========================================
+       HERO SECTION
+       ========================================= */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(16, 185, 129, 0.8)), 
+                  url('https://picsum.photos/seed/foodlogictech/1920/1080.jpg') no-repeat center center/cover;
+      color: var(--white);
+      padding-top: var(--header-height);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+
+    /* =========================================
+       SERVEIS
+       ========================================= */
+    #serveis {
+      background-color: var(--bg-white);
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-color);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: #ecfdf5;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      color: var(--primary-color);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* =========================================
+       SOBRE NOSALTRES
+       ========================================= */
+    #sobre-nosaltres {
+      background-color: var(--bg-light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text h2 {
+      text-align: left;
+    }
+
+    .features-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .features-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .features-list li::before {
+      content: '✓';
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-right: 10px;
+      background: #d1fae5;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    /* =========================================
+       CONTACTE
+       ========================================= */
+    #contacte {
+      background-color: var(--bg-white);
+    }
+
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background-color: #f8fafc;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .contact-form button {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* =========================================
+       RESPONSIVE DESIGN
+       ========================================= */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hamburger {
+        display: flex;
+        z-index: 1001;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: 0.4s ease-in-out;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1; /* Imatge a dalt en mòbil */
+      }
+    }
+
+    /* Animacions */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ===== CABECERA Y NAVEGACIÓN ===== -->
   <header>
-    <nav class="nav">
-      <h1 class="logo">Foodlogic</h1>
-      <ul class="nav-links">
+    <div class="container nav">
+      <a href="#" class="logo">Food<span>logic</span></a>
+      
+      <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
         <li><a href="#inici">Inici</a></li>
         <li><a href="#serveis">Serveis</a></li>
         <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
-        <li><a href="#contacte">Contacte</a></li>
+        <li><a href="#contacte" class="btn btn-primary" style="padding: 8px 20px; color: white;">Contacte</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <!-- ===== CONTENIDO PRINCIPAL ===== -->
   <main>
 
     <!-- SECCIÓN INICI -->
-    <section id="inici" class="section hero">
-      <h2>Solucions digitals per fer créixer el teu negoci</h2>
-      <p>Disseny web professional, senzill i efectiu per a empreses modernes.</p>
+    <section id="inici" class="hero">
+      <div class="hero-content">
+        <h2>Solucions digitals que alimenten el teu èxit</h2>
+        <p>Disseny web estratègic, branding i tecnologia per a empreses que volen marcar la diferència en el mercat actual.</p>
+        <a href="#serveis" class="btn btn-primary">Descobreix els nostres serveis</a>
+      </div>
     </section>
 
     <!-- SECCIÓN SERVEIS -->
-    <section id="serveis" class="section">
-      <h2>Serveis</h2>
+    <section id="serveis" class="section-padding">
+      <div class="container">
+        <h2>Els nostres serveis</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto;">Oferim una gamma completa de solucions digitals per ajudar el teu negoci a prosperar en l'era de la connectivitat.</p>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Disseny Web</h3>
-          <p>Creem webs modernes, adaptables i orientades a l’usuari.</p>
-        </article>
+        <div class="cards-container">
+          <article class="card">
+            <div class="card-icon">💻</div>
+            <h3>Disseny Web</h3>
+            <p>Creem webs modernes, totalment responsives (adaptables a mòbil) i optimitzades per convertir visitants en clients.</p>
+          </article>
 
-        <article class="card">
-          <h3>Branding Digital</h3>
-          <p>Definim la identitat visual de la teva marca.</p>
-        </article>
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Branding Digital</h3>
+            <p>Construïm una identitat visual sòlida i coherent que connecta emocionalment amb la teva audiència objectiu.</p>
+          </article>
 
-        <article class="card">
-          <h3>Assessorament</h3>
-          <p>T’ajudem a prendre les millors decisions digitals.</p>
-        </article>
+          <article class="card">
+            <div class="card-icon">📈</div>
+            <h3>Assessorament</h3>
+            <p>T’acompanyem en la transformació digital del teu negoci, prenant les decisions tecnològiques més encertades.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- SECCIÓN SOBRE NOSALTRES -->
-    <section id="sobre-nosaltres" class="section">
-      <h2>Sobre nosaltres</h2>
-      <p>
-        NovaForma Solutions és una empresa fictícia dedicada a oferir serveis
-        digitals adaptats a petites i mitjanes empreses.
-      </p>
-      <p>
-        Apostem per un disseny clar, funcional i accessible per a tots els usuaris.
-      </p>
+    <section id="sobre-nosaltres" class="section-padding">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>Sobre Foodlogic</h2>
+          <p>
+            Sóc un estudi de disseny i desenvolupament web enfocat en la lògica i l'eficiència. Creiem que una bona presència digital no ha de ser només bonica, sinó funcional i rendible.
+          </p>
+          <p>
+            La nostra missió és ajudar empreses modernes a navegar pel món digital amb eines clares, efectives i adaptades a les seves necessitats reals.
+          </p>
+          <ul class="features-list">
+            <li>Disseny centrat en l'usuari (UX)</li>
+            <li>Codi net i ràpid (SEO Friendly)</li>
+            <li>Suport i manteniment continuat</li>
+            <li>Solucions a mida</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <!-- Imatge d'oficina moderna / treball en equip -->
+          <img src="https://picsum.photos/seed/working/600/400" alt="Equip treballant en projectes digitals" loading="lazy">
+        </div>
+      </div>
     </section>
 
     <!-- SECCIÓN CONTACTE -->
-    <section id="contacte" class="section section-light">
-      <h2>Contacte</h2>
+    <section id="contacte" class="section-padding">
+      <div class="container">
+        <h2>Parlem del teu projecte</h2>
+        <p style="text-align: center;">Omple el formulari i et respondrem en el més breu possible.</p>
+        
+        <div class="contact-wrapper">
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" placeholder="El teu nom" required>
+            </div>
 
-      <form class="contact-form">
-        <label>
-          Nom
-          <input type="text" name="nom" required>
-        </label>
+            <div class="form-group">
+              <label for="email">Correu electrònic</label>
+              <input type="email" id="email" name="email" placeholder="nom@exemples.com" required>
+            </div>
 
-        <label>
-          Correu electrònic
-          <input type="email" name="email" required>
-        </label>
+            <div class="form-group">
+              <label for="telefon">Telèfon de contacte</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="+34 600 000 000">
+            </div>
 
-        <label>
-          Telèfon de contacte
-          <input type="tel" name="telefon">
-        </label>
+            <div class="form-group">
+              <label for="missatge">En què et podem ajudar?</label>
+              <textarea id="missatge" name="missatge" rows="4" placeholder="Explica'ns una mica sobre el teu projecte..." required></textarea>
+            </div>
 
-        <label>
-          Missatge
-          <textarea name="missatge" rows="4" required></textarea>
-        </label>
-
-        <button type="submit">Enviar</button>
-      </form>
+            <button type="submit" class="btn btn-primary">Enviar missatge</button>
+          </form>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <!-- ===== PIE DE PÁGINA ===== -->
   <footer>
-    <p>© 2026 NovaForma Solutions · Projecte educatiu</p>
+    <div class="container">
+      <h3 style="color: white; margin-bottom: 10px;">Foodlogic</h3>
+      <p>© 2026 Foodlogic · Disseny i Estratègia Digital</p>
+      <div style="margin-top: 20px; font-size: 0.85rem; color: #64748b;">
+        <a href="#">Política de Privacitat</a> · <a href="#">Avís Legal</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- ===== STATCOUNTER (PEGAR AQUÍ TU SCRIPT REAL) ===== -->
-  <!--
-  <script type="text/javascript">
-    // Código real de Statcounter
+  <!-- ===== SCRIPT PER AL MENÚ MÒBIL ===== -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      
+      // Animació simple de l'icono
+      hamburger.classList.toggle('toggle');
+    });
+
+    // Tancar el menú en fer clic en un enllaç
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
   </script>
-  -->
+
+  <!-- ===== STATCOUNTER ===== -->
   <!-- Default Statcounter code for foodlogistic
 https://vicenc18.github.io/web-corporativa/ -->
 <script type="text/javascript">
