@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Política de Privacidad | Foodlogic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* =========================================
+       VARIABLES CSS
+       ========================================= */
+    :root {
+      --primary-color: #16a34a;
+      --secondary-color: #0f172a; /* Gris molt fosc / Blau fosc */
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-main: #334155; /* Color del text base (Gris mitjà) */
+      --container-width: 900px;
+      --header-height: 80px;
+      --border-radius: 12px; 
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    /* =========================================
+       HEADER & NAV
+       ========================================= */
+    header {
+      height: var(--header-height);
+      background-color: rgba(255, 255, 255, 0.98);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      border-bottom: 4px solid var(--primary-color);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--primary-color);
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* =========================================
+       CONTINGUT LEGAL (ESTILS NOUS)
+       ========================================= */
+    .legal-content {
+      margin-top: 140px;
+      margin-bottom: 80px;
+      background: var(--bg-white);
+      padding: 60px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .legal-content p {
+      margin-bottom: 25px;
+      color: var(--text-main); /* Gris mitjà normal */
+      font-size: 1rem;
+      font-weight: 400;
+      text-align: justify;
+    }
+
+    ul {
+      list-style-position: inside;
+      margin-bottom: 25px;
+      padding-left: 20px;
+      font-weight: 400;
+      color: var(--text-main);
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    /* Classes per marcar elements */
+    
+    /* Per a noms, links i dades importants: Gris més fosc */
+    .destacado {
+      color: var(--secondary-color); /* #0f172a (Griss molt fosc) */
+      font-weight: 600;
+    }
+
+    /* Per a etiquetes de secció: Gris més fosc i Subratllat */
+    .seccion {
+      color: var(--secondary-color);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+      text-decoration-color: #cbd5e1; /* Color del subratllat (gris clar elegant) */
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      padding: 70px 0 30px;
+      border-top: 6px solid var(--primary-color);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .footer-brand svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--primary-color);
+    }
+    
+    .footer-brand p {
+      color: #94a3b8;
+      max-width: 350px;
+    }
+    
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-bottom p {
+      color: #475569;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
+    @media (max-width: 768px) {
+      .legal-content {
+        margin-top: 100px;
+        padding: 30px;
+      }
+      
+      .hamburger { display: flex; z-index: 1001; }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: 0.4s ease-in-out;
+      }
+
+      .nav-links.active { right: 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== CABECERA ===== -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
+        </svg>
+        Foodlogic
+      </a>
+      
+      <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="index.html#serveis">Productes</a></li>
+        <li><a href="index.html#contacte">Contacte</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== CONTINGUT PRINCIPAL ===== -->
+  <main>
+    <div class="container">
+      <div class="legal-content">
+        
+        <p>A través de la presente política de privacidad <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> desea informar a todas las personas que naveguen y accedan al sitio web <span class="destacado">www.foodlogic.cat</span> sobre los tratamientos de datos personales realizados.</p>
+
+        <p>El acceso al sitio web no requiere un registro previo. En todo caso, el Usuario con su navegación acepta en su totalidad la presente política de privacidad.</p>
+
+        <p>Antes del envío de cualquier solicitud de información a través del formulario de contacto de esta página web, el usuario debe aceptar la política de privacidad, con el fin de prestar el consentimiento expreso e informado por el tratamiento de los datos con las finalidades indicadas.</p>
+
+        <p><span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span>, de conformidad con el Reglamento (UE) 2016/679, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos, en calidad de Responsable del Tratamiento de los datos personales proporcionados le facilita la siguiente información:</p>
+
+        <p><span class="seccion">Responsable del Tratamiento:</span></p>
+        <ul>
+          <li>Razón Social: <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span></li>
+          <li>NIF: <span class="destacado">B12345678</span></li>
+          <li>Dirección: <span class="destacado">Polígon Industrial El Pla, Nau 42 – 08302 Mataró (Barcelona)</span></li>
+          <li>Teléfono: <span class="destacado">+34 93 123 45 67</span></li>
+          <li>Correo electrónico: <span class="destacado">info@foodlogic.cat</span></li>
+        </ul>
+
+        <p><span class="seccion">Finalidad del tratamiento:</span> Tratamos los datos y la información que nos facilitan las personas interesadas con la finalidad de:</p>
+        <ul>
+          <li>Gestionar el uso de las funcionalidades puestas a disposición a través del Sitio Web, entre ellas, la respuesta a solicitudes y/o consultas realizadas, así como la preparación de presupuestos. Los datos tratados con esta finalidad se conservarán mientras se mantenga la relación contractual y/o negocial entre el Usuario y <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> Para el caso de que las solicitudes efectuadas por un usuario no mantengan una relación contractual, los datos se conservarán hasta haber resuelto dicha solicitud.</li>
+          <li>Mantener informados a los Usuarios de productos y/o servicios de <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span>, a través de correo electrónico o medios de comunicación electrónica equivalentes, siempre que el Usuario haya prestado su consentimiento marcando la casilla correspondiente.</li>
+        </ul>
+
+        <p><span class="seccion">Legitimación:</span> El tratamiento de dichos datos está legitimado por la ejecución de las obligaciones contractuales y/o negociales. Así como por el consentimiento otorgado por el usuario a través de la casilla correspondiente.</p>
+
+        <p><span class="seccion">Criterios de conservación de los datos:</span> Los datos no se conservarán más tiempo del necesario para los cuales han sido recabados, excepto que exista una obligación legal.</p>
+
+        <p><span class="seccion">Comunicación de los datos:</span> No se comunicarán a otros terceros, excepto obligación legal o con el consentimiento expreso del interesado.</p>
+
+        <p><span class="seccion">Transferencias internacionales de datos:</span> No se realizan Transferencias Internacionales de datos a terceros países fuera de la Unión Europea.</p>
+
+        <p><span class="seccion">Derechos que asisten al Interesado:</span> El interesado tiene derecho a retirar el consentimiento en cualquier momento. Asimismo, le informamos que podrá ejercer sus derechos de acceso, rectificación y supresión (Derecho al olvido), limitación de los datos, portabilidad de los datos y oposición, enviando un escrito a <span class="destacado">Polígon Industrial El Pla, Nau 42 – 08302 Mataró (Barcelona)</span>, o correo electrónico <span class="destacado">info@foodlogic.cat</span></p>
+
+        <p>Asimismo, Se informa al interesado que podrá revocar el consentimiento del envío de comunicaciones comerciales enviando un correo electrónico a <span class="destacado">info@foodlogic.cat</span></p>
+
+        <p>La persona interesada puede presentar una reclamación ante la autoridad de control en materia de protección de datos competente, que actualmente es la Agencia Española de Protección de Datos (AEPD), a través de su sede electrónica: <span class="destacado">www.sedeagpd.gob.es/sede-electronica-web</span>, o enviando un escrito a <span class="destacado">C/ Jorge Juan nº6 – 28001 MADRID</span>.</p>
+
+        <p><span class="seccion">¿Es obligatorio proporcionar toda la información solicitada en el apartado de contacto?</span></p>
+        <p>En cuanto a los formularios del Sitio Web, el Usuario tiene que cumplimentar los marcados como “requerido”. No completar los datos personales requeridos o hacerlo parcialmente puede suponer que <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> no pueda atender sus solicitudes y, en consecuencia, <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> quedará exonerada de toda responsabilidad por la no prestación o la prestación incompleta de los servicios solicitados.</p>
+        <p>Los datos personales que el Usuario facilita a <span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> tienen que ser actuales para que la información de los registros esté actualiza y sin errores. El Usuario responderá de la veracidad de los datos facilitados.</p>
+
+        <p><span class="seccion">¿Qué medidas de seguridad tiene implantada la empresa?</span></p>
+        <p><span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> informa que el tratamiento que realiza de datos personales se realiza en todo momento de conformidad con la normativa aplicable en materia de protección de datos y de los servicios de la sociedad de la información.</p>
+        <p><span class="destacado">FOODLOGIC DISTRIBUCIONES, S.L.</span> tiene implantadas las medidas de seguridad de índole técnica y organizativas necesarias que garanticen la seguridad de los datos de carácter personal del Usuario y eviten su alteración, pérdida, tratamiento y/o acceso no autorizado de acuerdo con el estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a los que están expuestos, ya provengan de la acción humana o del medio físico o natural, en conformidad con el que prevé la normativa vigente.</p>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <svg viewBox="0 0 24 24">
+              <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
+            </svg>
+            Foodlogic
+          </h3>
+          <p>Liderem la distribució alimentària amb tecnologia avançada i un compromís intransigent amb la qualitat.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Enllaços</h4>
+          <ul>
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="index.html#serveis">Productes i Serveis</a></li>
+            <li><a href="index.html#contacte">Àrea de Clients</a></li>
+            <li><a href="privacitat.html">Política de Privacitat</a></li>
+            <li><a href="#">Avís Legal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Foodlogic Distribucions S.L. · Tots els drets reservats.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPT MENÚ ===== -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
