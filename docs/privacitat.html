@@ -357,6 +357,7 @@
   </main>
 
   <!-- ===== PIE DE PÁGINA ===== -->
+    <!-- ===== PIE DE PÁGINA ===== -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -376,7 +377,8 @@
             <li><a href="index.html#serveis">Productes i Serveis</a></li>
             <li><a href="index.html#contacte">Àrea de Clients</a></li>
             <li><a href="privacitat.html">Política de Privacitat</a></li>
-            <li><a href="#">Avís Legal</a></li>
+            <!-- Link a Avís Legal (Actualitzat) -->
+            <li><a href="avislegal.html">Avís Legal</a></li>
           </ul>
         </div>
       </div>
@@ -385,23 +387,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- ===== SCRIPT MENÚ ===== -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const links = document.querySelectorAll('.nav-links li');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-  </script>
 
 </body>
 </html>

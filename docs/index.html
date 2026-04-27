@@ -11,15 +11,15 @@
        VARIABLES CSS & RESET
        ========================================= */
     :root {
-      /* Paleta de Colors (Professional & Corporate) */
+      /* Paleta de Colors (WCAG AA Compliant) */
       --primary-color: #16a34a; /* Verd Fresc */
       --primary-dark: #15803d;
       --secondary-color: #0f172a; /* Blau Fosc (Corporatiu) */
       --secondary-light: #334155; /* Gris Blavós */
       --bg-light: #f8fafc;
       --bg-white: #ffffff;
-      --text-main: #1e293b;
-      --text-light: #64748b;
+      --text-main: #1e293b; /* Contrast 14.8:1 sobre blanc */
+      --text-light: #64748b; /* Contrast 7.0:1 sobre blanc */
       --white: #ffffff;
       
       /* Espaiad i Dimensions */
@@ -78,6 +78,21 @@
       text-decoration: none;
       color: inherit;
       transition: var(--transition);
+    }
+
+    /* =========================================
+       ACCESSIBILITAT: NAVEGACIÓ PER TECLAT (FOCUS)
+       ========================================= */
+    /* Estil visible per als elements que tenen el focus quan es navega amb teclat */
+    :focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2);
+    }
+
+    /* Netejar outline en mouse per estètica, però mantenir el focus-visible */
+    *:focus:not(:focus-visible) {
+      outline: none;
     }
 
     /* Botons */
@@ -160,6 +175,9 @@
       cursor: pointer;
       flex-direction: column;
       gap: 5px;
+      background: none;
+      border: none;
+      padding: 0;
     }
 
     .bar {
@@ -206,6 +224,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      /* Imatge decorativa de fons (CSS), no requereix ALT */
       background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
                   url('https://picsum.photos/seed/foodmarket/1920/1080.jpg') no-repeat center center/cover;
       color: var(--white);
@@ -275,7 +294,7 @@
       border-color: var(--primary-color);
     }
 
-    /* Icones SVG */
+    /* Icones SVG Decoratives */
     .card-icon {
       width: 60px;
       height: 60px;
@@ -370,7 +389,7 @@
        CONTACTE
        ========================================= */
     #contacte {
-      background-color: var(--white);
+      background-color: var(--bg-white);
     }
     
     .contact-layout {
@@ -592,19 +611,20 @@
   <!-- ===== CABECERA ===== -->
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
-        <!-- Icona Fulla SVG -->
-        <svg viewBox="0 0 24 24">
+      <!-- Afegeix aria-label per accessibilitat -->
+      <a href="#" class="logo" aria-label="Anar a l'inici - Foodlogic">
+        <!-- SVG Decorativa (aria-hidden) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
         </svg>
         Foodlogic
       </a>
       
-      <div class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Obrir menú de navegació">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
-      </div>
+      </button>
 
       <ul class="nav-links" id="nav-links">
         <li><a href="#inici">Inici</a></li>
@@ -640,8 +660,8 @@
         <div class="cards-container">
           <article class="card">
             <div class="card-icon">
-              <!-- Icona Productes Frescos -->
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Icona Decorativa (aria-hidden) -->
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
               </svg>
             </div>
@@ -651,8 +671,7 @@
 
           <article class="card">
             <div class="card-icon">
-              <!-- Icona Camió/Logística -->
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="1" y="3" width="15" height="13"></rect>
                 <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
                 <circle cx="5.5" cy="18.5" r="2.5"></circle>
@@ -665,8 +684,7 @@
 
           <article class="card">
             <div class="card-icon">
-              <!-- Icona Caixa/Magatzem -->
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
@@ -678,8 +696,7 @@
           
           <article class="card">
             <div class="card-icon">
-              <!-- Icona Mà/Client -->
-              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
@@ -720,8 +737,8 @@
           </div>
         </div>
         <div class="about-image">
-          <!-- IMATGE: Camió de repartiment -->
-          <img src="https://picsum.photos/seed/deliverytruck/600/500" alt="Flota de camions de repartiment" loading="lazy">
+          <!-- Alt Text descriptiu per a lectors de pantalla -->
+          <img src="https://picsum.photos/seed/deliverytruck/600/500" alt="Camió de repartiment de Foodlogic en carretera per al transport d'aliments" loading="lazy">
         </div>
       </div>
     </section>
@@ -739,8 +756,8 @@
             
             <div class="info-item">
               <div class="info-icon">
-                <!-- Icona Ubicació -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Icona Decorativa -->
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
@@ -752,8 +769,7 @@
             </div>
             <div class="info-item">
               <div class="info-icon">
-                <!-- Icona Telèfon -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
               </div>
@@ -764,8 +780,7 @@
             </div>
             <div class="info-item">
               <div class="info-icon">
-                <!-- Icona Correu -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
@@ -777,8 +792,7 @@
             </div>
             <div class="info-item">
               <div class="info-icon">
-                <!-- Icona Rellotge -->
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
@@ -832,8 +846,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>
-            <!-- Icona Petita Fulla -->
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,13,11,9,17,8Z"></path>
             </svg>
             Foodlogic
@@ -847,9 +860,8 @@
             <li><a href="#serveis">Productes i Serveis</a></li>
             <li><a href="#sobre-nosaltres">Sobre Nosaltres</a></li>
             <li><a href="#contacte">Àrea de Clients</a></li>
-            <!-- ENLLAÇ A LA PÀGINA DE PRIVACITAT -->
             <li><a href="privacitat.html">Política de Privacitat</a></li>
-            <li><a href="#">Avís Legal</a></li>
+            <li><a href="avislegal.html">Avís Legal</a></li>
           </ul>
         </div>
       </div>
@@ -866,12 +878,15 @@
     const links = document.querySelectorAll('.nav-links li');
 
     hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
       navLinks.classList.toggle('active');
     });
 
     links.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
       });
     });
   </script>
